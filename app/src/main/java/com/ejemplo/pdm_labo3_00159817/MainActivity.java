@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             Intent mIntent = new Intent();
             mIntent.setAction(Intent.ACTION_SEND);
             mIntent.setType("text/plain");
-            mIntent.putExtra(Intent.EXTRA_TEXT, "F*cking J*w");
+            mIntent.putExtra(Intent.EXTRA_TEXT, "Jeloudah");
             startActivity(mIntent);
         });
     }
