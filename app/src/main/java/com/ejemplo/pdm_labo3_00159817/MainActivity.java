@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private Button mButton;
+    private Button mButton, mButtonShare;
 
     @Override
     //Serializable
@@ -22,9 +22,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mButton=findViewById(R.id.btn_send);
+        mButtonShare=findViewById(R.id.btn_share);
         mButton.setOnClickListener(v->{
             Intent mIntent = new Intent(MainActivity.this, NewActivity.class);
             mIntent.putExtra(AppConstants.TEXT_KEY, "Jeloudah");
+            startActivity(mIntent);
+        });
+        mButtonShare.setOnClickListener(e->{
+            Intent mIntent = new Intent();
+            mIntent.setAction(Intent.ACTION_SEND);
+            mIntent.setType("text/plain");
+            mIntent.putExtra(Intent.EXTRA_TEXT, "F*cking J*w");
             startActivity(mIntent);
         });
     }
@@ -39,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+
         Log.d(TAG, "on stop");
     }
 
